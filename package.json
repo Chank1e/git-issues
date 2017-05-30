@@ -1,0 +1,27 @@
+{
+  "name": "git-issues",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chank1e/git-issues.git"
+  },
+  "author": "chank1e",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chank1e/git-issues/issues"
+  },
+  "homepage": "https://github.com/Chank1e/git-issues#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}

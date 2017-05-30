@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="app/css/main.css">
+<div ng-controller="gitIssuesMainCtrl as ctrl">
+  <div class="container">
+    <h2>Git Issues Checker<h2>
+    <input type="text" placeholder="name/repository" ng-model="ctrl.userName" ng-change="ctrl.checkUser(ctrl.userName)">
+    <div class="repos">
+      <div class="item">
+        
+      </div>
+    </div>
+  </div>
+</div>

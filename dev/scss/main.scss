@@ -1,0 +1,33 @@
+body,html {
+  height:100vh;
+  display: flex;
+  justify-content: center;
+    font-family: Verdana,sans-serif;
+}
+html {
+    background: linear-gradient(30deg, rgba(46,96,137,1) 0%,rgba(55,152,163,1) 100%);
+}
+input {
+  border:0;
+  border-radius: 12px;
+  background:#fff;
+  outline: none;
+  color:#416156;
+  font-weight: bold;
+  font-size: 14px;
+  text-indent:10px;
+  width:400px;
+  height:32px;
+  align-self: flex-start;
+}
+h2 {
+  text-align: center;
+  color:white;
+  text-transform:uppercase;
+}
+.repos {
+
+  .item{
+
+  }
+}
