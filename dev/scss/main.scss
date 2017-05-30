@@ -1,13 +1,18 @@
 body,html {
-  height:100vh;
-  display: flex;
-  justify-content: center;
+  height:100%;
     font-family: Verdana,sans-serif;
 }
 html {
     background: linear-gradient(30deg, rgba(46,96,137,1) 0%,rgba(55,152,163,1) 100%);
 }
-input {
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width:400px;
+  margin:0 auto;
+}
+input[type="text"] {
   border:0;
   border-radius: 12px;
   background:#fff;
@@ -26,8 +31,68 @@ h2 {
   text-transform:uppercase;
 }
 .repos {
-
+  width:400px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-between;
   .item{
-
+    margin-top:5px;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    background:#fff;
+    border-radius:10px;
+    height:20px;
+    font-size:10pt;
+    padding:0 5px;
+    line-height: 20px;
+    color:rgb(55,152,163);
+    cursor: pointer;
+    &:hover{
+      background:rgb(55,152,163);
+      color:#fff;
+    }
+  }
+}
+.reposFindError{
+  text-align:center;
+  width:400px;
+  overflow: hidden;
+  background:rgba(233,97,97,0.5);
+  border-radius: 12px;
+  margin-top:2px;
+  color:#550909;
+  font-size:10pt;
+  line-height:32px;
+  height:32px;
+}
+.issues {
+  width:100%;
+  margin-top:10px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.4);
+  overflow: hidden;
+  .block{
+    display: flex;
+    flex-direction: row;
+    height:32px;
+    .icon{
+      flex-grow: 1;
+      .circle{
+        width:16px;
+        height:16px;
+        border-radius: 8px;
+        background:red;
+        margin:0 auto;
+        margin-top:8px;
+      }
+    }
+    .text{
+      text-align: justify;
+      text-indent: 8px;
+      font-size:10pt;
+      flex-grow:30;
+      overflow: hidden;
+    }
   }
 }

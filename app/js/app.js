@@ -10,20 +10,54 @@ app
           }]);
 
 function gitIssuesMainCtrl($http){
-  this.checkUser = checkUser;
+  self = this;
+  self.checkUser = checkUser;
+  $http(
+    {
+      method:'GET',
+      url:'https://api.github.com/user',
+      headers: {
+        'Authorization':' Basic Y2hhbmsxZTpnaXRodWIxMjM0NTk4Nw=='
+      }
+    }
+  );
   //CHECK USER FUNC
-  function checkUser(userName) {
-    if(userName[userName.length-1]=='/'){
-      $http.get('https://api.github.com/users/'+userName.slice(0,-1))
-           .then(success,error);
+  function checkUser(inputText) {
+    if(inputText.indexOf('/')!=-1){
+      self.currentUser = inputText.slice(0,inputText.indexOf('/'));
+      $http.get('https://api.github.com/users/'+self.currentUser+'/repos')
+           .then(successUserRepos,errorUserRepos);
+      if(inputText.length>inputText.indexOf('/')+1){
+          self.repoName = inputText.slice(inputText.indexOf('/')-inputText.length+1);
+          $http.get('https://api.github.com/repos/'+self.currentUser+'/'+self.repoName+'/issues')
+               .then(successIssues,errorIssues);
+        };
+    } else {
+      self.reposArray=[]; //Hide repos
     }
   };
   //SUCCESS HTTP FUNC
-  function success(msg){
-    console.log(msg);
+  function successUserRepos(msg){
+    let arr = msg.data;
+    self.reposArray = [];
+    arr.forEach(function(item,i,arr){
+      self.reposArray.push(item.name);
+    });
+    self.reposFindError = false;
   };
   //ERROR HTTP FUNC
-  function error(msg) {
-    console.log(msg);
+  function errorUserRepos(msg) {
+    self.reposFindError = true;
+    setTimeout(function(){self.reposFindError=false},1000);
   };
+  function successIssues(msg){
+    let arr = msg.data;
+    self.issuesArray = [];
+    arr.forEach(function(item,i,arr){
+      self.issuesArray.push(item.body);
+    });
+  };
+  function errorIssues(msg){
+    console.log(msg);
+  }
 };

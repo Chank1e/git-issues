@@ -1,11 +1,22 @@
 <link rel="stylesheet" href="app/css/main.css">
 <div ng-controller="gitIssuesMainCtrl as ctrl">
   <div class="container">
-    <h2>Git Issues Checker<h2>
+    <h2>Git Issues Checker</h2>
     <input type="text" placeholder="name/repository" ng-model="ctrl.userName" ng-change="ctrl.checkUser(ctrl.userName)">
+    <div class="reposFindError" ng-show="ctrl.reposFindError">Can't find user {{ctrl.currentUser}}</div>
     <div class="repos">
-      <div class="item">
-        
+      <div class="item" ng-repeat="repository in ctrl.reposArray">
+        {{repository}}
+      </div>
+    </div>
+  </div>
+  <div class="issues">
+    <div class="block" ng-repeat="issue in ctrl.issuesArray">
+      <div class="icon">
+        <div class="circle"></div>
+      </div>
+      <div class="text">
+            {{issue}}
       </div>
     </div>
   </div>
