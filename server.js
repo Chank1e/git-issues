@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var http = require('http');
 
 /* serves main page */
 app.get("/", function(req, res) {
@@ -13,3 +14,14 @@ app.get(/^(.+)$/, function(req, res){
 app.listen(8080, function() {
   console.log("Listening on 8080");
 });
+http.get({
+  method:'GET',
+  host:'https://api.github.com/user',
+  port:80,
+  headers: {
+    'Authorization':' Basic Y2hhbmsxZTpnaXRodWIxMjM0NTk4Nw=='
+  }
+},
+function(msg){
+  console.log(msg);
+})

@@ -1,3 +1,3 @@
 var app = angular
-      .module('gitIssues',['ngRoute'])
+      .module('gitIssues',['ngRoute','angular.http-loader'])
       .controller('gitIssuesMainCtrl',gitIssuesMainCtrl);

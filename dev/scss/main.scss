@@ -12,6 +12,21 @@ html {
   width:400px;
   margin:0 auto;
 }
+.searchButton {
+  border-radius: 6px;
+  width:200px;
+  color:#fff;
+  font-size:16pt;
+  font-weight: bold;
+  margin:5px auto;
+  border:0;
+  transition: all 0.2s ease-in-out;
+  background:linear-gradient(30deg,rgba(55,152,163,1)100%, rgba(46,96,137,1) 0%);
+  &:hover {
+    box-shadow: 0 0 10px #444;
+    cursor: pointer;
+  }
+}
 input[type="text"] {
   border:0;
   border-radius: 12px;
@@ -54,11 +69,11 @@ h2 {
     }
   }
 }
-.reposFindError{
+.message{
   text-align:center;
   width:400px;
   overflow: hidden;
-  background:rgba(233,97,97,0.5);
+  background:#ccb85a;
   border-radius: 12px;
   margin-top:2px;
   color:#550909;
@@ -72,27 +87,32 @@ h2 {
   border-radius:12px;
   background:rgba(255,255,255,0.4);
   overflow: hidden;
+  width:800px;
+  margin:0 auto;
+  margin-top:5px;
   .block{
-    display: flex;
-    flex-direction: row;
-    height:32px;
-    .icon{
-      flex-grow: 1;
-      .circle{
-        width:16px;
-        height:16px;
-        border-radius: 8px;
-        background:red;
-        margin:0 auto;
-        margin-top:8px;
-      }
-    }
-    .text{
-      text-align: justify;
-      text-indent: 8px;
-      font-size:10pt;
-      flex-grow:30;
-      overflow: hidden;
+    min-height: 14px;
+    max-height: 28px;
+    border-bottom:2px solid #fff;
+    padding:5px;
+    font-size:12pt;
+    line-height: 14px;
+    &:hover {
+      box-shadow:0 0 10px #444;
+      cursor:pointer;
     }
   }
+}
+.ajax-loading {
+  width:30px;
+  height:30px;
+  border-radius:30px;
+  margin:0 auto;
+  border:4px solid white;
+  border-top:4px solid rgba(0,0,0,0);
+  animation:load 0.3s ease-in-out infinite;
+}
+@keyframes load {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
 }
