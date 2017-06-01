@@ -14,6 +14,8 @@ function gitIssuesMainCtrl($http){
   self = this;
   self.checkUser = checkUser;
   self.setCurrentRepo = setCurrentRepo;
+  self.allIssuesCheckbox = true;
+  self.issueClass=issueClass;
   //CHECK USER FUNC
   function checkUser(inputText) {
     self.reposArray=[];
@@ -38,7 +40,16 @@ function gitIssuesMainCtrl($http){
       self.reposArray=[];
           if(inputText.length>inputText.indexOf('/')+1){
           self.currentRepo = inputText.slice(inputText.indexOf('/')-inputText.length+1);
-          $http.get('https://api.github.com/repos/'+self.currentUser+'/'+self.currentRepo+'/issues?client_id=373764afdfbce3a8c2fc&client_secret=a311fa3eb2bc8c52c2518a09c4a7d26b3e732560')
+          if(self.allIssuesCheckbox){
+            self.stateIssues='&state=all';
+          } else{
+            self.stateIssues='';
+          }
+          $http({
+            url:'https://api.github.com/repos/'+self.currentUser+'/'+self.currentRepo+'/issues?client_id=373764afdfbce3a8c2fc&client_secret=a311fa3eb2bc8c52c2518a09c4a7d26b3e732560'+self.stateIssues,
+            method:'GET',
+            loader:'loader'
+          })
                .then(successIssues,errorIssues);
              }
     }
@@ -75,7 +86,7 @@ function gitIssuesMainCtrl($http){
     } else {
       self.issuesArray = [];
       arr.forEach(function(item,i,arr){
-        self.issuesArray.push({'title':item.title,'date':item.created_at,'number':item.number});
+        self.issuesArray.push({'title':item.title,'date':item.created_at,'number':item.number,'state':item.state});
       });
     }
   };
@@ -87,5 +98,8 @@ function gitIssuesMainCtrl($http){
     self.currentRepo = repo;
     self.userName = self.currentUser+'/'+self.currentRepo;
     self.checkUser(self.userName);
+  }
+  function issueClass(state){
+    return (state=='open')?'green':'red';
   }
 };

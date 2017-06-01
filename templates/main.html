@@ -11,7 +11,11 @@
       </div>
     </div>
     <input type="text" placeholder="name/repository" ng-model="ctrl.userName">
-    <button ng-click="ctrl.checkUser(ctrl.userName)" class="searchButton">Search</button>
+    <div class="searchBox">
+      <input type="checkbox" class="allIssuesCheck" ng-model="ctrl.allIssuesCheckbox"><span class="spanIssuesAll">All Issues</span>
+      <div class="free"></div>
+      <button ng-click="ctrl.checkUser(ctrl.userName)" class="searchButton">Search</button>
+    </div>
     <div ng-loader="loader" ng-loader-init="true"></div>
     <div class="message" ng-show="ctrl.messageShow">{{ctrl.message}}</div>
     <div class="repos">
@@ -21,14 +25,16 @@
     </div>
   </div>
   <div class="issues">
-    <div class="block" ng-repeat="issue in ctrl.issuesArray">
-      <div class="text">
-            {{issue.title}}<br>
-            <div class="right">
-              Date:{{issue.date}}<br>
-              Number:{{issue.number}}
-            </div>
+    <a href="#issue" ng-click="setItemToStorage(issue)" ng-repeat="issue in ctrl.issuesArray">
+      <div class="block" >
+        <div class="text">
+              <span ng-class="ctrl.issueClass(issue.state)">{{issue.title}}</span><br>
+              <div class="right">
+                Date:{{issue.date}}<br>
+                Number:{{issue.number}}
+              </div>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>

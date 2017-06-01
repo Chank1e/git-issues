@@ -15,12 +15,14 @@ html {
   margin:0 auto;
 }
 .searchButton {
+  flex-grow: 10;
   border-radius: 6px;
   width:200px;
+  height:32px;
   color:#fff;
   font-size:16pt;
   font-weight: bold;
-  margin:5px auto;
+  margin:5px 0;
   border:0;
   transition: all 0.2s ease-in-out;
   background:linear-gradient(30deg,rgba(55,152,163,1)100%, rgba(46,96,137,1) 0%);
@@ -112,6 +114,34 @@ h2 {
 div.right{
   text-align:right;
   font-weight: 400;
+}
+
+.allIssuesCheck{
+  flex-grow: 1;
+  width:20px;
+  height:20px;
+}
+.searchBox{
+  width:400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.spanIssuesAll {
+  color:white;
+  font-weight: bold;
+  text-decoration: underline;
+  flex-grow: 10;
+}
+.free{
+  flex-grow:100;
+}
+.red{
+  color:#b73535;
+}
+.green {
+  color:#5a8925;
 }
 .ajax-loading {
   width:30px;
