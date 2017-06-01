@@ -4,6 +4,8 @@ body,html {
 }
 html {
     background: linear-gradient(30deg, rgba(46,96,137,1) 0%,rgba(55,152,163,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .container {
   display: flex;
@@ -25,6 +27,9 @@ html {
   &:hover {
     box-shadow: 0 0 10px #444;
     cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }
 input[type="text"] {
@@ -91,17 +96,22 @@ h2 {
   margin:0 auto;
   margin-top:5px;
   .block{
-    min-height: 14px;
-    max-height: 28px;
+    color:#fff;
+    font-weight: bold;
+    min-height: 42px;
     border-bottom:2px solid #fff;
     padding:5px;
     font-size:12pt;
     line-height: 14px;
     &:hover {
-      box-shadow:0 0 10px #444;
+      box-shadow:0 0 17px #777;
       cursor:pointer;
     }
   }
+}
+div.right{
+  text-align:right;
+  font-weight: 400;
 }
 .ajax-loading {
   width:30px;

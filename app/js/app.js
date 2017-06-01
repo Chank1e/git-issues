@@ -6,7 +6,7 @@ app
    .config(['$routeProvider', function($routeProvider){
               $routeProvider
               .when('/',{templateUrl:'templates/main.html'})
-              .when('/ttt',{templateUrl:'templates/ttt.html'})
+              .when('/issue',{templateUrl:'templates/issue.html'})
               .otherwise({redirectTo:'/'});
           }]);
 
@@ -39,7 +39,7 @@ function gitIssuesMainCtrl($http){
           if(inputText.length>inputText.indexOf('/')+1){
           self.currentRepo = inputText.slice(inputText.indexOf('/')-inputText.length+1);
           $http.get('https://api.github.com/repos/'+self.currentUser+'/'+self.currentRepo+'/issues?client_id=373764afdfbce3a8c2fc&client_secret=a311fa3eb2bc8c52c2518a09c4a7d26b3e732560')
-               .then(successIssues,errorIssues); //Hide repos
+               .then(successIssues,errorIssues);
              }
     }
   };
@@ -75,13 +75,13 @@ function gitIssuesMainCtrl($http){
     } else {
       self.issuesArray = [];
       arr.forEach(function(item,i,arr){
-        self.issuesArray.push(item.title);
+        self.issuesArray.push({'title':item.title,'date':item.created_at,'number':item.number});
       });
     }
   };
   function errorIssues(msg){
     console.log(msg);
-  };
+  }
 
   function setCurrentRepo(repo){
     self.currentRepo = repo;

@@ -1,5 +1,9 @@
-body{
+html{
+  height:100%;
   background:linear-gradient(30deg,rgba(55,152,163,1)100%, rgba(46,96,137,1) 0%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+body {
+  height:100%;
 }

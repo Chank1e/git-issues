@@ -2,6 +2,6 @@ app
    .config(['$routeProvider', function($routeProvider){
               $routeProvider
               .when('/',{templateUrl:'templates/main.html'})
-              .when('/ttt',{templateUrl:'templates/ttt.html'})
+              .when('/issue',{templateUrl:'templates/issue.html'})
               .otherwise({redirectTo:'/'});
           }]);

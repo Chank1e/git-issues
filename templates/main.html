@@ -2,6 +2,14 @@
 <div ng-controller="gitIssuesMainCtrl as ctrl">
   <div class="container">
     <h2>Git Issues Checker</h2>
+    <div class="userProfile">
+      <div class="userPhoto">
+        <img ng-src="">
+      </div>
+      <div class="userInfo">
+
+      </div>
+    </div>
     <input type="text" placeholder="name/repository" ng-model="ctrl.userName">
     <button ng-click="ctrl.checkUser(ctrl.userName)" class="searchButton">Search</button>
     <div ng-loader="loader" ng-loader-init="true"></div>
@@ -15,7 +23,11 @@
   <div class="issues">
     <div class="block" ng-repeat="issue in ctrl.issuesArray">
       <div class="text">
-            {{issue}}
+            {{issue.title}}<br>
+            <div class="right">
+              Date:{{issue.date}}<br>
+              Number:{{issue.number}}
+            </div>
       </div>
     </div>
   </div>
