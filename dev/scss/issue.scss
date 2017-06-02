@@ -34,9 +34,44 @@ html {
   }
 }
 .title{
+  color:#aac0e0;
   text-align: center;
   width:500px;
 }
 .mainText{
-  
+  width:600px;
+  margin:0 auto;
+  min-height:300px;
+  background: linear-gradient(30deg,rgba(55,152,163,0.3) 0%, rgba(46,96,137,0.4) 100%);
+  border-bottom:2px solid #fff;
+  border-right:2px solid #fff;
+  border-left:2px solid #fff;
+  padding-top:16px;
+}
+.date {
+  font-size:10pt;
+  text-align: right;
+  font-style: italic;
+  text-decoration: underline;
+}
+.text {
+  overflow:hidden;
+  text-align:justify;
+  margin:7px;
+  text-indent: 3px;
+  color:#fff;
+  font-size:12pt;
+}
+.toHome{
+  display: block;
+  width:100px;
+  height:20px;
+  margin:0 auto;
+  color:white;
+  font-size:14pt;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
 }

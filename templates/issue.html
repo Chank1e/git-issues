@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="app/css/issue.css">
+<a class="toHome" href="#">Home</a>
 <div ng-controller="issueCtrl as isCtrl" class="content">
   <div class="info">
     <div class="user">
@@ -15,6 +16,9 @@
     </div>
   </div>
   <div class="mainText">
-    
+    <div class="date">{{isCtrl.data.date}}</div>
+    <div class="text">
+      {{isCtrl.data.body}}
+    </div>
   </div>
 </div>
