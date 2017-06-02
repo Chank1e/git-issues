@@ -1,9 +1,10 @@
-function gitIssuesMainCtrl($http){
+function gitIssuesMainCtrl($http,storage){
   self = this;
   self.checkUser = checkUser;
   self.setCurrentRepo = setCurrentRepo;
   self.allIssuesCheckbox = true;
   self.issueClass=issueClass;
+  self.setItemToStorage = setItemToStorage;
   //CHECK USER FUNC
   function checkUser(inputText) {
     self.reposArray=[];
@@ -74,7 +75,7 @@ function gitIssuesMainCtrl($http){
     } else {
       self.issuesArray = [];
       arr.forEach(function(item,i,arr){
-        self.issuesArray.push({'title':item.title,'date':item.created_at,'number':item.number,'state':item.state});
+        self.issuesArray.push({'title':item.title,'date':item.created_at,'number':item.number,'state':item.state,'url':item.html_url,'body':item.body,'avatar':item.user.avatar_url,'login':item.user.login,'gitProfile':item.user.html_url});
       });
     }
   };
@@ -89,5 +90,10 @@ function gitIssuesMainCtrl($http){
   }
   function issueClass(state){
     return (state=='open')?'green':'red';
+  };
+
+  function setItemToStorage(item){
+    console.log('asdasd')
+    storage.setItem(item);
   }
 };

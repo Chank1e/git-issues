@@ -1,4 +1,20 @@
 <link rel="stylesheet" href="app/css/issue.css">
-<div ng-controller="issueCtrl as isCtrl">
-{{ctrl.currentUser}}
+<div ng-controller="issueCtrl as isCtrl" class="content">
+  <div class="info">
+    <div class="user">
+      <div class="photo">
+        <img ng-src="{{isCtrl.data.avatar}}" height="150">
+      </div>
+      <div class="gitInfo">
+        <h4>{{isCtrl.data.login}}</h4>
+        <a href="{{isCtrl.data.gitProfile}}" target=_blank>GITHUB</a>
+      </div>
+    </div>
+    <div class="title">
+      <h3>{{isCtrl.data.title}}</h3>
+    </div>
+  </div>
+  <div class="mainText">
+    
+  </div>
 </div>

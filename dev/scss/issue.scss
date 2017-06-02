@@ -1,9 +1,42 @@
-html{
+body,html {
   height:100%;
-  background:linear-gradient(30deg,rgba(55,152,163,1)100%, rgba(46,96,137,1) 0%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    font-family: Verdana,sans-serif;
 }
-body {
-  height:100%;
+html {
+    background: linear-gradient(30deg, rgba(46,96,137,1) 0%,rgba(55,152,163,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.content {
+  width:800px;
+  margin: 0 auto;
+}
+.info {
+  display: flex;
+  width:800px;
+  height:150px;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+}
+.user{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  width:300px;
+  background: rgba(255,255,255,0.4);
+  .photo{
+    width:150px;
+    height:150px;
+  }
+  .gitInfo a{
+    color:#fff;
+  }
+}
+.title{
+  text-align: center;
+  width:500px;
+}
+.mainText{
+  
 }

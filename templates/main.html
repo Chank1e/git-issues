@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="issues">
-    <a href="#issue" ng-click="setItemToStorage(issue)" ng-repeat="issue in ctrl.issuesArray">
+    <a href="#!issue" ng-click="ctrl.setItemToStorage(issue)" ng-repeat="issue in ctrl.issuesArray">
       <div class="block" >
         <div class="text">
               <span ng-class="ctrl.issueClass(issue.state)">{{issue.title}}</span><br>
